@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
-SoftwareSerial bluetooth(2, 3); // 블루투스 모듈을 선언합니다.
+SoftwareSerial bluetooth(2, 3);
 
-int val; // 블루투스 통신을 통해 받은 값을 저장하는 변수를 만들어줍니다.
+int val; 
 int data;
 void setup()
 {
