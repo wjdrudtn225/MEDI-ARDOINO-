@@ -1,3 +1,4 @@
+
 #include <SoftwareSerial.h>
 SoftwareSerial bluetooth(2, 3);
 
@@ -14,13 +15,13 @@ void setup()
 
 void loop()
 {
-  int dataA = digitalRead(4);
-  int dataB = digitalRead(5);
-  int dataC = digitalRead(6);
+  int dataA = digitalRead(4);//아침
+  int dataB = digitalRead(5);//점심
+  int dataC = digitalRead(6);//저녁
   
   hhh(dataA,dataB,dataC);
 
-  bluetooth.println(data);
+
 
 }
 
@@ -28,13 +29,13 @@ int hhh(int A, int B, int C){
     if(A == LOW & B == LOW & C == LOW){
       data = 0;
   }else if(A == HIGH & B == LOW & C == LOW){
-    data = 1;
+    data = 1;//저녁 open
   }else if(A == LOW & B == HIGH & C == LOW){
-    data = 2;
+    data = 2;//점심 open
   }else if(A == HIGH & B == HIGH & C == LOW){
     data = 3;
   }else if(A == LOW & B == LOW & C == HIGH){
-    data = 4;
+    data = 4;//아침 open
   }else if(A == HIGH & B == LOW & C == HIGH){
     data = 5;
   }else if(A == LOW & B == HIGH & C == HIGH){
@@ -43,5 +44,6 @@ int hhh(int A, int B, int C){
     data = 7;
   }
   Serial.println(data);
+  bluetooth.println(data);
   delay(1000);
 }
